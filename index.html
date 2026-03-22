@@ -3,668 +3,628 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slice Cut Friseur â Berlin Pankow</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Slice Cut Friseur | Florastra&szlig;e 15, Berlin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;background:#fafafa;line-height:1.6}
-a{text-decoration:none;color:inherit}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #fafafa; }
 
-/* COLOR PALETTE */
-:root{
---primary:#2c3e50;
---accent:#c8a96e;
---accent-light:#f5efe6;
---white:#ffffff;
---light-bg:#f8f6f2;
---text-dark:#1a1a2e;
---text-mid:#4a4a6a;
---text-light:#7a7a9a;
---border:#e8e2d9;
---shadow:0 4px 24px rgba(44,62,80,0.10);
-}
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 70px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo {
+    font-size: 1.4rem; font-weight: 800; color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: #c9a84c; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #c9a84c; }
 
-/* HEADER / HERO */
-.hero{
-background:linear-gradient(135deg,#1a1a2e 0%,#2c3e50 50%,#3d5166 100%);
-color:var(--white);
-padding:0;
-position:relative;
-overflow:hidden;
-min-height:100vh;
-display:flex;
-flex-direction:column;
-}
-.hero::before{
-content:'';
-position:absolute;
-top:-80px;left:-80px;
-width:400px;height:400px;
-border-radius:50%;
-background:rgba(200,169,110,0.10);
-}
-.hero::after{
-content:'';
-position:absolute;
-bottom:-120px;right:-60px;
-width:500px;height:500px;
-border-radius:50%;
-background:rgba(200,169,110,0.07);
-}
-.nav{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:24px 5%;
-position:relative;z-index:10;
-}
-.nav-logo{
-font-family:'Playfair Display',serif;
-font-size:1.4rem;
-font-weight:700;
-letter-spacing:0.02em;
-color:var(--accent);
-}
-.nav-links{
-display:flex;
-gap:32px;
-}
-.nav-links a{
-color:rgba(255,255,255,0.80);
-font-size:0.9rem;
-font-weight:500;
-letter-spacing:0.04em;
-text-transform:uppercase;
-transition:color 0.2s;
-}
-.nav-links a:hover{color:var(--accent)}
-.hero-content{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:60px 5% 80px;
-position:relative;z-index:10;
-}
-.hero-tag{
-display:inline-block;
-background:rgba(200,169,110,0.20);
-border:1px solid rgba(200,169,110,0.50);
-color:var(--accent);
-padding:6px 18px;
-border-radius:50px;
-font-size:0.82rem;
-font-weight:600;
-letter-spacing:0.1em;
-text-transform:uppercase;
-margin-bottom:20px;
-}
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:clamp(2.8rem,6vw,5rem);
-font-weight:700;
-line-height:1.15;
-margin-bottom:16px;
-letter-spacing:-0.01em;
-}
-.hero h1 span{color:var(--accent)}
-.hero-sub{
-font-size:1.1rem;
-color:rgba(255,255,255,0.72);
-max-width:520px;
-margin-bottom:36px;
-}
-.rating-badge{
-display:inline-flex;
-align-items:center;
-gap:10px;
-background:rgba(255,255,255,0.10);
-border:1px solid rgba(255,255,255,0.20);
-border-radius:50px;
-padding:12px 28px;
-backdrop-filter:blur(8px);
-}
-.stars-display{color:#f5c842;font-size:1.3rem;letter-spacing:2px}
-.rating-text{color:var(--white);font-size:0.95rem;font-weight:500}
-.rating-text strong{color:var(--accent)}
-.hero-cta{
-display:inline-flex;
-align-items:center;
-gap:10px;
-background:var(--accent);
-color:#1a1a2e;
-padding:15px 36px;
-border-radius:50px;
-font-weight:700;
-font-size:1rem;
-letter-spacing:0.02em;
-transition:all 0.3s;
-box-shadow:0 6px 24px rgba(200,169,110,0.35);
-margin-top:32px;
-}
-.hero-cta:hover{background:#d4b97e;transform:translateY(-2px);box-shadow:0 10px 32px rgba(200,169,110,0.45)}
-.hero-scroll{
-position:absolute;
-bottom:28px;
-left:50%;
-transform:translateX(-50%);
-opacity:0.5;
-font-size:1.5rem;
-animation:bounce 2s infinite;
-z-index:10;
-}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+  /* HERO */
+  .hero {
+    position: relative; height: 100vh; min-height: 600px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=600&fit=crop') center/cover no-repeat;
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+  .hero:hover .hero-bg { transform: scale(1); }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 1rem; }
+  .hero-badge {
+    display: inline-block;
+    background: #c9a84c; color: #fff;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 900; color: #fff;
+    line-height: 1.05; letter-spacing: -2px;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: #c9a84c; }
+  .hero-sub {
+    font-size: 1.15rem; color: rgba(255,255,255,0.8);
+    font-weight: 300; margin-bottom: 2.5rem;
+  }
+  .hero-rating {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.6rem; margin-bottom: 2.5rem;
+  }
+  .stars-gold { color: #f5a623; font-size: 1.3rem; letter-spacing: 2px; }
+  .hero-rating-text { color: #fff; font-size: 1rem; font-weight: 500; }
+  .btn-primary {
+    display: inline-block;
+    background: #c9a84c; color: #fff;
+    padding: 16px 40px; border-radius: 50px;
+    text-decoration: none; font-weight: 700; font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+  }
+  .btn-primary:hover {
+    background: #b8953e; transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.5);
+  }
+  .btn-secondary {
+    display: inline-block;
+    background: transparent; color: #fff;
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 14px 36px; border-radius: 50px;
+    text-decoration: none; font-weight: 600; font-size: 1rem;
+    margin-left: 1rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .btn-secondary:hover { border-color: #c9a84c; background: rgba(201,168,76,0.15); }
 
-/* SECTIONS GENERAL */
-section{padding:90px 5%}
-.section-label{
-font-size:0.78rem;
-font-weight:700;
-letter-spacing:0.15em;
-text-transform:uppercase;
-color:var(--accent);
-margin-bottom:10px;
-}
-.section-title{
-font-family:'Playfair Display',serif;
-font-size:clamp(1.8rem,3.5vw,2.6rem);
-font-weight:700;
-color:var(--primary);
-margin-bottom:16px;
-line-height:1.25;
-}
-.section-divider{
-width:60px;
-height:3px;
-background:var(--accent);
-border-radius:2px;
-margin-bottom:32px;
-}
+  /* SECTIONS */
+  section { padding: 90px 5%; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: #c9a84c;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800; letter-spacing: -1px;
+    line-height: 1.1; color: #111;
+    margin-bottom: 1.25rem;
+  }
+  .section-desc {
+    font-size: 1.05rem; color: #555;
+    font-weight: 400; line-height: 1.7;
+    max-width: 560px;
+  }
 
-/* ÃBER UNS */
-.about{background:var(--white)}
-.about-inner{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-max-width:1100px;
-margin:0 auto;
-}
-.about-text p{
-color:var(--text-mid);
-font-size:1.05rem;
-line-height:1.8;
-margin-bottom:20px;
-}
-.about-features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:16px;
-margin-top:8px;
-}
-.feature-card{
-background:var(--light-bg);
-border-radius:14px;
-padding:20px;
-border:1px solid var(--border);
-}
-.feature-icon{
-font-size:1.6rem;
-margin-bottom:8px;
-}
-.feature-card h4{
-font-size:0.9rem;
-font-weight:700;
-color:var(--primary);
-margin-bottom:4px;
-}
-.feature-card p{
-font-size:0.82rem;
-color:var(--text-light);
-margin:0;
-}
-.about-visual{
-position:relative;
-}
-.about-img-mock{
-background:linear-gradient(135deg,#2c3e50,#3d5166);
-border-radius:20px;
-height:440px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-}
-.about-img-mock::before{
-content:'';
-position:absolute;
-top:0;left:0;right:0;bottom:0;
-background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="1" fill="rgba(200,169,110,0.3)"/></svg>') repeat;
-}
-.about-icon-big{
-font-size:6rem;
-opacity:0.9;
-position:relative;z-index:1;
-}
-.about-badge{
-position:absolute;
-bottom:-20px;
-right:-20px;
-background:var(--accent);
-color:#1a1a2e;
-border-radius:16px;
-padding:18px 24px;
-text-align:center;
-box-shadow:var(--shadow);
-}
-.about-badge .num{
-font-family:'Playfair Display',serif;
-font-size:2rem;
-font-weight:700;
-display:block;
-line-height:1;
-}
-.about-badge .lbl{
-font-size:0.78rem;
-font-weight:600;
-text-transform:uppercase;
-letter-spacing:0.06em;
-}
+  /* ABOUT */
+  .about { background: #fff; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto;
+  }
+  .about-img-wrap { position: relative; }
+  .about-img-wrap img {
+    width: 100%; height: 440px; object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+  .about-badge-box {
+    position: absolute; bottom: -20px; right: -20px;
+    background: #c9a84c; border-radius: 16px;
+    padding: 20px 24px; text-align: center;
+    box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+  }
+  .about-badge-box .big { font-size: 2.2rem; font-weight: 900; color: #fff; line-height: 1; }
+  .about-badge-box .small { font-size: 0.8rem; color: rgba(255,255,255,0.85); font-weight: 500; margin-top: 4px; }
+  .about-text { padding-right: 1rem; }
+  .about-features { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: #fff8ec; display: flex; align-items: center;
+    justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+    border: 1px solid #f0e0bb;
+  }
+  .feature-text h4 { font-size: 0.95rem; font-weight: 700; color: #111; margin-bottom: 2px; }
+  .feature-text p { font-size: 0.85rem; color: #666; }
 
-/* ÃFFNUNGSZEITEN */
-.hours{background:var(--light-bg)}
-.hours-inner{
-max-width:700px;
-margin:0 auto;
-}
-.hours-table{
-width:100%;
-border-collapse:collapse;
-border-radius:16px;
-overflow:hidden;
-box-shadow:var(--shadow);
-}
-.hours-table thead tr{
-background:var(--primary);
-color:var(--white);
-}
-.hours-table thead th{
-padding:16px 24px;
-text-align:left;
-font-size:0.88rem;
-font-weight:600;
-letter-spacing:0.06em;
-text-transform:uppercase;
-}
-.hours-table tbody tr{
-background:var(--white);
-border-bottom:1px solid var(--border);
-transition:background 0.2s;
-}
-.hours-table tbody tr:last-child{border-bottom:none}
-.hours-table tbody tr:hover{background:var(--accent-light)}
-.hours-table tbody tr.today{background:var(--accent-light)}
-.hours-table td{
-padding:14px 24px;
-font-size:0.97rem;
-color:var(--text-mid);
-}
-.hours-table td:first-child{
-font-weight:600;
-color:var(--primary);
-width:45%;
-}
-.badge-open{
-display:inline-block;
-background:#d4edda;
-color:#1e7e34;
-border-radius:50px;
-padding:2px 12px;
-font-size:0.78rem;
-font-weight:700;
-margin-left:8px;
-letter-spacing:0.04em;
-}
-.badge-closed{
-display:inline-block;
-background:#f8d7da;
-color:#721c24;
-border-radius:50px;
-padding:2px 12px;
-font-size:0.78rem;
-font-weight:700;
-margin-left:8px;
-letter-spacing:0.04em;
-}
-.today-indicator td:first-child::before{
-content:'â ';
-color:var(--accent);
-}
+  /* HOURS */
+  .hours { background: #111; }
+  .hours .section-title { color: #fff; }
+  .hours .section-label { color: #c9a84c; }
+  .hours-container { max-width: 1100px; margin: 0 auto; }
+  .hours-grid {
+    display: grid; grid-template-columns: 1fr 1.5fr;
+    gap: 4rem; align-items: start;
+  }
+  .hours-intro .section-desc { color: rgba(255,255,255,0.65); max-width: 100%; }
+  .hours-table {
+    background: #1a1a1a; border-radius: 16px;
+    overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
+  }
+  .hours-row {
+    display: flex; justify-content: space-between;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s;
+  }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row:hover { background: rgba(201,168,76,0.07); }
+  .hours-row.closed .hours-time { color: #e74c3c; }
+  .hours-row.open .hours-time { color: #2ecc71; }
+  .hours-day { font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.8); }
+  .hours-time { font-size: 0.9rem; font-weight: 600; }
+  .hours-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.15); color: #c9a84c;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50px; padding: 3px 12px;
+    font-size: 0.75rem; font-weight: 600;
+    margin-top: 1.5rem;
+  }
 
-/* BEWERTUNGEN */
-.reviews{background:var(--white)}
-.reviews-header{text-align:center;margin-bottom:48px}
-.reviews-header .section-divider{margin:0 auto 0}
-.overall-rating{
-display:inline-flex;
-align-items:center;
-gap:16px;
-background:var(--light-bg);
-border-radius:16px;
-padding:20px 36px;
-margin-top:28px;
-border:1px solid var(--border);
-}
-.big-rating{
-font-family:'Playfair Display',serif;
-font-size:3.5rem;
-font-weight:700;
-color:var(--primary);
-line-height:1;
-}
-.rating-details{text-align:left}
-.rating-details .stars{color:#f5c842;font-size:1.4rem;letter-spacing:2px}
-.rating-details p{font-size:0.88rem;color:var(--text-light);margin-top:2px}
-.reviews-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-gap:24px;
-max-width:1100px;
-margin:0 auto;
-}
-.review-card{
-background:var(--light-bg);
-border-radius:16px;
-padding:28px;
-border:1px solid var(--border);
-transition:transform 0.2s,box-shadow 0.2s;
-position:relative;
-}
-.review-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.review-card::before{
-content:'"';
-position:absolute;
-top:16px;left:20px;
-font-size:4rem;
-color:var(--accent);
-opacity:0.25;
-font-family:'Playfair Display',serif;
-line-height:1;
-}
-.review-stars{color:#f5c842;font-size:1.1rem;letter-spacing:2px;margin-bottom:12px}
-.review-text{
-color:var(--text-mid);
-font-size:0.95rem;
-line-height:1.7;
-margin-bottom:16px;
-font-style:italic;
-}
-.review-author{
-font-weight:700;
-font-size:0.88rem;
-color:var(--primary);
-display:flex;
-align-items:center;
-gap:8px;
-}
-.review-avatar{
-width:34px;height:34px;
-border-radius:50%;
-background:var(--primary);
-color:var(--white);
-display:inline-flex;
-align-items:center;
-justify-content:center;
-font-size:0.85rem;
-font-weight:700;
-flex-shrink:0;
-}
+  /* REVIEWS */
+  .reviews { background: #f5f5f5; }
+  .reviews-container { max-width: 1100px; margin: 0 auto; }
+  .reviews-header { text-align: center; margin-bottom: 3rem; }
+  .reviews-header .section-desc { margin: 0 auto; text-align: center; }
+  .reviews-overall {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin-bottom: 1rem;
+  }
+  .reviews-score { font-size: 3.5rem; font-weight: 900; color: #111; line-height: 1; }
+  .reviews-meta { text-align: left; }
+  .reviews-meta .stars-gold { font-size: 1.4rem; }
+  .reviews-meta p { font-size: 0.85rem; color: #666; margin-top: 4px; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .review-card {
+    background: #fff; border-radius: 16px;
+    padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+  .review-stars { color: #f5a623; font-size: 1.1rem; margin-bottom: 1rem; }
+  .review-text {
+    font-size: 0.93rem; color: #444;
+    line-height: 1.65; margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .review-author {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .review-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #c9a84c, #e8c97b);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;
+  }
+  .review-name { font-size: 0.9rem; font-weight: 700; color: #111; }
+  .review-badge { font-size: 0.75rem; color: #888; margin-top: 1px; }
+  .google-badge {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.75rem; color: #888; margin-top: 0.5rem;
+  }
+  .g-icon {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: #4285f4; display: inline-flex; align-items: center;
+    justify-content: center; color: #fff; font-size: 0.6rem; font-weight: 700;
+  }
 
-/* KONTAKT */
-.contact{background:linear-gradient(135deg,#1a1a2e 0%,#2c3e50 100%);color:var(--white)}
-.contact-inner{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:start;
-max-width:1000px;
-margin:0 auto;
-}
-.contact .section-title{color:var(--white)}
-.contact-info{
-display:flex;
-flex-direction:column;
-gap:24px;
-}
-.contact-item{
-display:flex;
-align-items:flex-start;
-gap:16px;
-}
-.contact-icon{
-width:48px;height:48px;
-border-radius:12px;
-background:rgba(200,169,110,0.15);
-border:1px solid rgba(200,169,110,0.30);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:1.3rem;
-flex-shrink:0;
-}
-.contact-item-text h4{
-font-size:0.82rem;
-font-weight:600;
-letter-spacing:0.08em;
-text-transform:uppercase;
-color:var(--accent);
-margin-bottom:4px;
-}
-.contact-item-text p,.contact-item-text a{
-color:rgba(255,255,255,0.85);
-font-size:1rem;
-line-height:1.5;
-}
-.contact-item-text a:hover{color:var(--accent)}
-.contact-cta{
-background:rgba(255,255,255,0.07);
-border:1px solid rgba(255,255,255,0.15);
-border-radius:20px;
-padding:36px;
-text-align:center;
-}
-.contact-cta p{
-color:rgba(255,255,255,0.70);
-margin-bottom:28px;
-font-size:1.02rem;
-line-height:1.7;
-}
-.cta-btn{
-display:inline-flex;
-align-items:center;
-gap:10px;
-background:var(--accent);
-color:#1a1a2e;
-padding:16px 36px;
-border-radius:50px;
-font-weight:700;
-font-size:1.02rem;
-letter-spacing:0.02em;
-transition:all 0.3s;
-box-shadow:0 6px 24px rgba(200,169,110,0.30);
-}
-.cta-btn:hover{background:#d4b97e;transform:translateY(-2px)}
-.cta-secondary{
-display:inline-block;
-margin-top:14px;
-color:rgba(255,255,255,0.55);
-font-size:0.88rem;
-}
+  /* CONTACT */
+  .contact { background: #fff; }
+  .contact-container { max-width: 1100px; margin: 0 auto; }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .contact-info-block { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .contact-icon {
+    width: 50px; height: 50px; border-radius: 14px;
+    background: #fff8ec; border: 1px solid #f0e0bb;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .contact-detail h4 { font-size: 0.8rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .contact-detail p, .contact-detail a {
+    font-size: 1rem; font-weight: 600; color: #111;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .contact-detail a:hover { color: #c9a84c; }
+  .contact-map {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    height: 400px;
+  }
+  .contact-map iframe { width: 100%; height: 100%; border: none; }
+  .map-placeholder {
+    width: 100%; height: 400px; border-radius: 20px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: #fff; gap: 1rem;
+  }
+  .map-placeholder .map-icon { font-size: 3rem; }
+  .map-placeholder p { font-size: 0.95rem; color: rgba(255,255,255,0.7); }
+  .map-placeholder strong { font-size: 1.1rem; color: #c9a84c; }
 
-/* FOOTER */
-footer{
-background:#111827;
-color:rgba(255,255,255,0.55);
-text-align:center;
-padding:28px 5%;
-font-size:0.88rem;
-}
-footer span{color:var(--accent)}
+  /* FOOTER */
+  footer {
+    background: #0a0a0a; color: rgba(255,255,255,0.6);
+    padding: 50px 5% 30px;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem; padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .nav-logo { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+  .footer-brand p { font-size: 0.9rem; line-height: 1.7; max-width: 280px; }
+  .footer-col h5 {
+    font-size: 0.8rem; font-weight: 700; color: #fff;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.55); font-size: 0.9rem;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: #c9a84c; }
+  .footer-bottom {
+    max-width: 1100px; margin: 30px auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.82rem; color: rgba(255,255,255,0.35);
+  }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-.about-inner{grid-template-columns:1fr;gap:40px}
-.about-visual{display:none}
-.contact-inner{grid-template-columns:1fr;gap:40px}
-.nav-links{display:none}
-}
-@media(max-width:600px){
-section{padding:60px 5%}
-.hero-content{padding:40px 5% 60px}
-.reviews-grid{grid-template-columns:1fr}
-.about-features{grid-template-columns:1fr}
-.overall-rating{flex-direction:column;gap:8px;text-align:center}
-.rating-details{text-align:center}
-}
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .about-grid, .hours-grid, .contact-grid, .footer-inner {
+      grid-template-columns: 1fr; gap: 2.5rem;
+    }
+    .about-badge-box { right: 10px; bottom: 10px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1/-1; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .btn-secondary { margin-left: 0; margin-top: 1rem; display: inline-block; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 0 4%; }
+    .nav-links { gap: 1rem; }
+    section { padding: 70px 4%; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-bottom { font-size: 0.75rem; }
+  }
 </style>
 </head>
 <body>
 
-<!-- HERO / NAVIGATION -->
-<header class="hero">
-  <nav class="nav">
-    <div class="nav-logo">Slice Cut</div>
-    <div class="nav-links">
-      <a href="#ueber-uns">Ãber uns</a>
-      <a href="#oeffnungszeiten">Ãffnungszeiten</a>
-      <a href="#bewertungen">Bewertungen</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-  </nav>
+<!-- NAVIGATION -->
+<nav>
+  <span class="nav-logo">Slice<span>Cut</span></span>
+  <ul class="nav-links">
+    <li><a href="#about">&Uuml;ber uns</a></li>
+    <li><a href="#hours">&Ouml;ffnungszeiten</a></li>
+    <li><a href="#reviews">Bewertungen</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">â Friseursalon Â· Berlin Pankow</div>
-    <h1>Slice Cut <span>Friseur</span></h1>
-    <p class="hero-sub">Ihr professioneller Friseursalon in der FlorastraÃe, Berlin â fÃ¼r den perfekten Schnitt, der zu Ihnen passt.</p>
-    <div class="rating-badge">
-      <span class="stars-display">âââââ</span>
-      <span class="rating-text"><strong>4,9 / 5</strong> Â· 297 Bewertungen</span>
+    <div class="hero-badge">&#9986; Friseur &bull; Berlin Pankow</div>
+    <h1>Slice <span>Cut</span><br>Friseur</h1>
+    <p class="hero-sub">Florastra&szlig;e 15 &bull; 13187 Berlin &bull; Ihr Friseur in Pankow</p>
+    <div class="hero-rating">
+      <span class="stars-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="hero-rating-text">4.9 / 5 &mdash; 297 Bewertungen</span>
     </div>
-    <a href="#kontakt" class="hero-cta">ð Jetzt anrufen</a>
+    <a href="tel:+493021946368" class="btn-primary">Jetzt anrufen</a>
+    <a href="#about" class="btn-secondary">Mehr erfahren</a>
   </div>
-  <div class="hero-scroll">â</div>
-</header>
+</section>
 
-<!-- ÃBER UNS -->
-<section class="about" id="ueber-uns">
-  <div class="about-inner">
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop" alt="Slice Cut Friseur Salon Berlin" loading="lazy">
+      <div class="about-badge-box">
+        <div class="big">4.9</div>
+        <div class="small">&#9733; Google Rating</div>
+      </div>
+    </div>
     <div class="about-text">
-      <div class="section-label">Ãber uns</div>
-      <h2 class="section-title">Haarschnitte mit Leidenschaft & KÃ¶nnen</h2>
-      <div class="section-divider"></div>
-      <p>Willkommen bei <strong>Slice Cut Friseur</strong> in der FlorastraÃe 15, mitten im Herzen von Berlin-Pankow. Unser erfahrenes Team rund um Elias und Vanessa steht fÃ¼r erstklassige Friseurleistungen, bei denen QualitÃ¤t, KreativitÃ¤t und Ihr persÃ¶nliches Wohlbefinden an erster Stelle stehen.</p>
-      <p>Ob klassischer Herrenschnitt, moderner Damencut oder aufwÃ¤ndige Lockenbehandlung â wir nehmen uns die Zeit, Ihre WÃ¼nsche zu verstehen und das Beste aus Ihren Haaren herauszuholen. Bei uns fÃ¼hlen Sie sich vom ersten Moment an willkommen.</p>
+      <div class="section-label">&Uuml;ber uns</div>
+      <h2 class="section-title">Ihr Wohf&uuml;hl&shy;friseur in Berlin Pankow</h2>
+      <p class="section-desc">Willkommen bei Slice Cut Friseur &ndash; Ihrem vertrauenswerten Friseursalon in der Florastra&szlig;e 15 in Berlin Pankow. Unser erfahrenes Team rund um Elias und Vanessa steht f&uuml;r exzellente Haarschnitte, pers&ouml;nliche Beratung und eine Atmosph&auml;re, in der Sie sich rundum wohlf&uuml;hlen.</p>
       <div class="about-features">
-        <div class="feature-card">
-          <div class="feature-icon">âï¸</div>
-          <h4>Professionelle Schnitte</h4>
-          <p>MaÃgeschneiderte Haarschnitte fÃ¼r jeden Typ</p>
+        <div class="feature-item">
+          <div class="feature-icon">&#9986;</div>
+          <div class="feature-text">
+            <h4>Professionelle Haarschnitte</h4>
+            <p>F&uuml;r alle Haartypen &ndash; auch f&uuml;r Locken spezialisiert</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">ð</div>
-          <h4>Locken-Experten</h4>
-          <p>Speziell fÃ¼r Locken & besondere Haartypen</p>
+        <div class="feature-item">
+          <div class="feature-icon">&#128588;</div>
+          <div class="feature-text">
+            <h4>Pers&ouml;nliche Beratung</h4>
+            <p>Kompetente und freundliche Beratung bei jedem Besuch</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">ð</div>
-          <h4>WohlfÃ¼hlatmosphÃ¤re</h4>
-          <p>Freundliches Team & entspannte Umgebung</p>
+        <div class="feature-item">
+          <div class="feature-icon">&#11088;</div>
+          <div class="feature-text">
+            <h4>Top Bewertungen</h4>
+            <p>4.9 Sterne aus 297 Kundenbewertungen auf Google</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">â­</div>
-          <h4>Top Bewertungen</h4>
-          <p>4,9 Sterne aus 297 Kundenbewertungen</p>
-        </div>
-      </div>
-    </div>
-    <div class="about-visual">
-      <div class="about-img-mock">
-        <div class="about-icon-big">âï¸</div>
-      </div>
-      <div class="about-badge">
-        <span class="num">4.9â</span>
-        <span class="lbl">Kundenwertung</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ÃFFNUNGSZEITEN -->
-<section class="hours" id="oeffnungszeiten">
-  <div class="hours-inner">
-    <div class="section-label" style="text-align:center">Wann wir fÃ¼r Sie da sind</div>
-    <h2 class="section-title" style="text-align:center">Ãffnungszeiten</h2>
-    <div class="section-divider" style="margin:0 auto 32px"></div>
-    <table class="hours-table">
-      <thead>
-        <tr>
-          <th>Wochentag</th>
-          <th>Uhrzeit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Montag</td>
-          <td><span class="badge-closed">Geschlossen</span></td>
-        </tr>
-        <tr>
-          <td>Dienstag</td>
-          <td>10:00 â 20:00 Uhr</td>
-        </tr>
-        <tr>
-          <td>Mittwoch</td>
-          <td>10:00 â 20:00 Uhr</td>
-        </tr>
-        <tr>
-          <td>Donnerstag</td>
-          <td>10:00 â 20:00 Uhr</td>
-        </tr>
-        <tr>
-          <td>Freitag</td>
-          <td>10:00 â 20:00 Uhr</td>
-        </tr>
-        <tr>
-          <td>Samstag</td>
-          <td>10:00 â 18:00 Uhr</td>
-        </tr>
-        <tr>
-          <td>Sonntag</td>
-          <td><span class="badge-closed">Geschlossen</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- KUNDENBEWERTUNGEN -->
-<section class="reviews" id="bewertungen">
-  <div class="reviews-header">
-    <div class="section-label">Was unsere Kunden sagen</div>
-    <h2 class="section-title">Kundenbewertungen</h2>
-    <div class="section-divider"></div>
-    <div class="overall-rating">
-      <div class="big-rating">4,9</div>
-      <div class="rating-details">
-        <div class="stars">âââââ</div>
-        <p>Basierend auf 297 Google-Bewertungen</p>
+<!-- OPENING HOURS -->
+<section class="hours" id="hours">
+  <div class="hours-container">
+    <div class="hours-grid">
+      <div class="hours-intro">
+        <div class="section-label">&Ouml;ffnungszeiten</div>
+        <h2 class="section-title" style="color:#fff;">Wann wir f&uuml;r Sie da sind</h2>
+        <p class="section-desc">Wir freuen uns auf Ihren Besuch! Vereinbaren Sie gerne einen Termin telefonisch oder kommen Sie direkt in unseren Salon in der Florastra&szlig;e 15 in Berlin Pankow.</p>
+        <div class="hours-tag">&#128222; +49 30 21946368</div>
+        <br><br>
+        <a href="tel:+493021946368" class="btn-primary" style="font-size:0.95rem;">Termin vereinbaren</a>
+      </div>
+      <div>
+        <div class="hours-table">
+          <div class="hours-row closed">
+            <span class="hours-day">Sonntag</span>
+            <span class="hours-time">Geschlossen</span>
+          </div>
+          <div class="hours-row closed">
+            <span class="hours-day">Montag</span>
+            <span class="hours-time">Geschlossen</span>
+          </div>
+          <div class="hours-row open">
+            <span class="hours-day">Dienstag</span>
+            <span class="hours-time">10:00 &ndash; 20:00</span>
+          </div>
+          <div class="hours-row open">
+            <span class="hours-day">Mittwoch</span>
+            <span class="hours-time">10:00 &ndash; 20:00</span>
+          </div>
+          <div class="hours-row open">
+            <span class="hours-day">Donnerstag</span>
+            <span class="hours-time">10:00 &ndash; 20:00</span>
+          </div>
+          <div class="hours-row open">
+            <span class="hours-day">Freitag</span>
+            <span class="hours-time">10:00 &ndash; 20:00</span>
+          </div>
+          <div class="hours-row open">
+            <span class="hours-day">Samstag</span>
+            <span class="hours-time">10:00 &ndash; 18:00</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">âââââ</div>
-      <p class="review-text">âHabe viele Jahre nach einem Stammfriseur gesucht, wo Preis und Leistung ebenso stimmen wie der WohlfÃ¼hlfaktor im Laden selbst. Bin lange von Salon zu Salon gewandert, zu 100% glÃ¼cklich war ich nirgends â bis ich Slice Cut entdeckt habe.
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-container">
+    <div class="reviews-header">
+      <div class="section-label">Kundenstimmen</div>
+      <h2 class="section-title">Was unsere Kunden sagen</h2>
+      <div class="reviews-overall">
+        <div class="reviews-score">4.9</div>
+        <div class="reviews-meta">
+          <div class="stars-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>Basierend auf 297 Google-Bewertungen</p>
+        </div>
+      </div>
+      <p class="section-desc">Unsere Kunden vertrauen uns &ndash; &uuml;berzeugen Sie sich selbst von den Erfahrungen anderer G&auml;ste.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Habe viele Jahre nach einem Stammfriseur gesucht, wo Preis und Leistung ebenso stimmen wie der Wohlf&uuml;hlfaktor im Laden selbst. Bin lange von Salon zu Salon gewandert, zu 100% gl&uuml;cklich war ich nirgend...&ldquo;</p>
+        <div class="review-author">
+          <div class="review-avatar">K</div>
+          <div>
+            <div class="review-name">Kundin aus Berlin</div>
+            <div class="review-badge">Verifizierte Google-Bewertung</div>
+          </div>
+        </div>
+        <div class="google-badge"><span class="g-icon">G</span> Google Bewertung</div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Ich war nun schon das 3. mal da und bin absolut zufrieden! Sei es Elias oder Vanessa, beide wissen wie man Haare schneidet, vor allem wenn&rsquo;s um meine Locken geht! Sie sind zwar offiziell keine Locken...&ldquo;</p>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">Stammkundin</div>
+            <div class="review-badge">Verifizierte Google-Bewertung</div>
+          </div>
+        </div>
+        <div class="google-badge"><span class="g-icon">G</span> Google Bewertung</div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Zuerst hat mir die Mitarbeiterin die Haare geschnitten, aber sie schien nichts &uuml;ber Haare zu wissen. Sie hat sie so geschnitten, wie ich es auch zu Hause h&auml;tte machen k&ouml;nnen. Selbst nachdem ich sie zw...&ldquo;</p>
+        <div class="review-author">
+          <div class="review-avatar">G</div>
+          <div>
+            <div class="review-name">Google Nutzerin</div>
+            <div class="review-badge">Verifizierte Google-Bewertung</div>
+          </div>
+        </div>
+        <div class="google-badge"><span class="g-icon">G</span> Google Bewertung</div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Der Retter in der Not &#9986;&#65039; Ich kam mit einem Haarnotfall und wurde sehr kompetent beraten. Tolle freundliche Atmosph&auml;re und ein super professionelles Team. Vielen lieben Dank f&uuml;r die tollen Haare &#128583;&ldquo;</p>
+        <div class="review-author">
+          <div class="review-avatar">N</div>
+          <div>
+            <div class="review-name">Notfall-Kundin</div>
+            <div class="review-badge">Verifizierte Google-Bewertung</div>
+          </div>
+        </div>
+        <div class="google-badge"><span class="g-icon">G</span> Google Bewertung</div>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Sehr nett, professionell und freundlich... Nur zu empfehlen! Schnell Termin machen... Wie ihr wart immer noch nicht hier? Elias ist eben einfach ein echter Profi. Gelernt ist gelernt! Immer wieder ger...&ldquo;</p>
+        <div class="review-author">
+          <div class="review-avatar">E</div>
+          <div>
+            <div class="review-name">Elias-Fan</div>
+            <div class="review-badge">Verifizierte Google-Bewertung</div>
+          </div>
+        </div>
+        <div class="google-badge"><span class="g-icon">G</span> Google Bewertung</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Kontakt &amp; Anfahrt</div>
+        <h2 class="section-title">Besuchen Sie uns in Berlin Pankow</h2>
+        <p class="section-desc">Wir freuen uns auf Ihren Besuch! Rufen Sie uns an oder kommen Sie direkt in unseren Salon &ndash; wir sind f&uuml;r Sie da.</p>
+        <div class="contact-info-block">
+          <div class="contact-item">
+            <div class="contact-icon">&#128205;</div>
+            <div class="contact-detail">
+              <h4>Adresse</h4>
+              <p>Florastra&szlig;e 15<br>13187 Berlin, Deutschland<br>Bezirk Pankow</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">&#128222;</div>
+            <div class="contact-detail">
+              <h4>Telefon</h4>
+              <a href="tel:+493021946368">+49 30 21946368</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">&#128337;</div>
+            <div class="contact-detail">
+              <h4>&Ouml;ffnungszeiten</h4>
+              <p>Di&ndash;Fr: 10:00 &ndash; 20:00 Uhr<br>Sa: 10:00 &ndash; 18:00 Uhr<br>So &amp; Mo: Geschlossen</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">&#11088;</div>
+            <div class="contact-detail">
+              <h4>Bewertung</h4>
+              <p>4.9 / 5 auf Google &bull; 297 Bewertungen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-map">
+        <div class="map-placeholder">
+          <div class="map-icon">&#128205;</div>
+          <strong>Slice Cut Friseur</strong>
+          <p>Florastra&szlig;e 15, 13187 Berlin</p>
+          <a href="https://maps.google.com/?q=Florastra%C3%9Fe+15+13187+Berlin" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.9rem; margin-top:0.5rem;">In Google Maps &ouml;ffnen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="nav-logo">Slice<span>Cut</span></span>
+      <p>Ihr professioneller Friseursalon in Berlin Pankow. Wir stehen f&uuml;r Qualit&auml;t, Wohlbef&uuml;hlen und exzellente Haarschnitte f&uuml;r jeden Haartyp.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#about">&Uuml;ber uns</a></li>
+        <li><a href="#hours">&Ouml;ffnungszeiten</a></li>
+        <li><a href="#reviews">Bewertungen</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <ul>
+        <li><a href="tel:+493021946368">+49 30 21946368</a></li>
+        <li><a href="#contact">Florastra&szlig;e 15</a></li>
+        <li><a href="#contact">13187 Berlin</a></li>
+        <li><a href="#contact">Pankow</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2024 Slice Cut Friseur &bull; Alle Rechte vorbehalten</span>
+    <span>Florastra&szlig;e 15, 13187 Berlin &bull; Bezirk Pankow</span>
+  </div>
+</footer>
+
+</body>
+</html>
